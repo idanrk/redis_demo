@@ -35,4 +35,15 @@ router.delete('/user/delete/:id', (req, res) => {
     redisClient.del(id)
     res.redirect("/")
 })
+router.post('/user/update/:id', (req, res) => {
+    const id = req.params.id
+    redisClient.hgetall(id, (error, user) => {
+        if (!user)
+            return res.render('index', {
+                error: "ID not found"
+            })
+        user.id = id
+        res.render('updateuser', { user })
+    })
+})
 module.exports = router

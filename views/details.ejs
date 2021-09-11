@@ -1,22 +1,30 @@
 <%- include('./includes/nav.ejs') %>
+    </head>
 
     <body>
-        <h1>
-            <%= user.firstname %>
-                <%= user.lastname %> [
-                    <%= user.id %>]
-        </h1>
-        <ul class="list-group">
-            <li class="list-group-item"><strong>Email:</strong>
-                <%= user.email %>
-            </li>
-            <li class="list-group-item"><strong>Phone Number:</strong>
-                <%= user.phone %>
-            </li>
-        </ul>
-        <form method="POST" action="/user/delete/<%=user.id%>?_method=DELETE">
-            <input type="submit" class="btn btn-danger pull-right" value="Delete">
-        </form>
+        <div class="container">
+            <h1>
+                <%=user.firstname %>
+                    <%=user.lastname %> [
+                        <%=user.id %>]
+            </h1>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Email:</strong>
+                    <%=user.email %>
+                </li>
+                <li class="list-group-item"><strong>Phone Number:</strong>
+                    <%=user.phone %>
+                </li>
+            </ul>
+            <div class="btn-group">
+                <form method="POST" action="/user/delete/<%=user.id%>?_method=DELETE">
+                    <input type="submit" class="btn btn-danger" value="Delete">
+                </form>
+                <form method="POST" action="/user/update/<%=user.id%>">
+                    <input type="submit" class="btn btn-primary" value="Update">
+                </form>
+            </div>
+        </div>
     </body>
 
     </html>
