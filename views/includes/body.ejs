@@ -1,0 +1,10 @@
+<h1>Search user by ID:</h1>
+<% if (typeof error !== 'undefined' && error.length > 0) { %>
+    <span><%= error %></span>
+    <% } %>
+        <form class="form-inline" action="/users/search" method="POST">
+            <div class="form-group">
+                <input type="text" name="id" class="form-control" placeholder="Search Users By ID">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Search">
+        </form>
